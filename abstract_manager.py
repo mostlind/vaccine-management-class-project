@@ -11,9 +11,13 @@ class AbstractManager(Generic[T]):
     data_directory: str
     filename: str
 
-    def save(self, item: T):
-        items = self.all()
-        items.append(item)
+    def save(self, new_item: T):
+        """Create new item if it doesn't already exist, update if it does, then save to file"""
+
+        # get all items, except the one being updated
+        items = [x for x in self.all() if x.id != new_item.id]
+
+        items.append(new_item)
         file_path = path.join(self.data_directory, self.filename)
 
         with open(file_path, "wb+") as f:
