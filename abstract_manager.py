@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Generic, List, Optional, TypeVar
 import pickle
 from uuid import UUID
+import uuid
 from identifiable import Identifiable
 
 T = TypeVar("T", bound=Identifiable)
@@ -34,7 +35,7 @@ class AbstractManager(Generic[T]):
             return []
 
     def find_by_id(self, id: UUID) -> Optional[T]:
-        items = self.read_from_file()
+        items = self.all()
         for item in items:
             if item.id == id:
                 return item

@@ -1,11 +1,11 @@
 from abstract_manager import AbstractManager
-from datetime import datetime
+from datetime import date as date_type
 from uuid import UUID, uuid4
 from identifiable import Identifiable
 
 
 class Appointment(Identifiable):
-    def __init__(self, user_id: UUID, facility_id: UUID, date: datetime) -> None:
+    def __init__(self, user_id: UUID, facility_id: UUID, date: date_type) -> None:
         self.id = uuid4()
         self.user_id = user_id
         self.facility_id = facility_id
