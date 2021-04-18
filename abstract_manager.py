@@ -1,4 +1,5 @@
 from os import path
+from pathlib import Path
 from typing import Generic, List, Optional, TypeVar
 import pickle
 from uuid import UUID
@@ -20,6 +21,7 @@ class AbstractManager(Generic[T]):
         items.append(new_item)
         file_path = path.join(self.data_directory, self.filename)
 
+        Path(self.data_directory).mkdir(exist_ok=True, parents=True)
         with open(file_path, "wb+") as f:
             pickle.dump(items, f)
 
