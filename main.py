@@ -1,8 +1,9 @@
-import user
-from user_manager import UserManager
+from uuid import uuid4
+from user import UserManager, User
 import datetime
 
-user = user.User("sam", datetime.date.today(), "123 address street", 1)
-UserManager.save(user)
+user_manager = UserManager()
+user = User("sam", datetime.date.today(), "123 address street", 1)
+user_manager.save(user)
 
-print(UserManager.all())
+print([x.id for x in user_manager.all()])

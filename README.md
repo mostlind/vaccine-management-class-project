@@ -5,3 +5,6 @@
 * Create a virtual env: `python -m venv venv`
 * Activate your virtual env: `source ./venv/bin/activate` (assuming you're using the bash shell)
 * run the example script `python main.py`
+
+# Run Tests
+`python -m unittest tests/*.py`
