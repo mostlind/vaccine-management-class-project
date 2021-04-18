@@ -11,10 +11,9 @@
 `python -m unittest tests/*.py`
 
 # Usage
-`python main.py` - this runs the command line app, and shows help informations
+`python main.py <command> <subcommand> --argument value`
 
 ## Commands
-Usage `python main.py <command> <subcommand> --arg value`
 
 ### `facility`
 Facility related commands
