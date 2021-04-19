@@ -8,7 +8,7 @@
 * run the example script `python main.py`
 
 # Run Tests
-`python -m unittest tests/*.py`
+`python -m unittest test.py`
 
 # Usage
 `python main.py <command> <subcommand> --argument value`
