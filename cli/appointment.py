@@ -4,8 +4,8 @@ from datetime import date, datetime, timedelta
 import uuid
 import click
 from click.utils import echo
-from user import User, UserManager
-from appointment import Appointment, ApppointmentManager
+from entities.user import User, UserManager
+from entities.appointment import Appointment, ApppointmentManager
 
 # from facility import FacilityManager, Facility
 
@@ -38,7 +38,7 @@ def schedule():
 
     echo(f"\nRegistered User with id {user.id}")
 
-    facility_id = pro(
+    facility_id = prompt(
         "What is the unique identifier of the facility that you want to go to?"
     )
 

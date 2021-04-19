@@ -2,7 +2,7 @@ import uuid
 import click
 from click.termui import prompt
 from click.utils import echo
-from facility import FacilityManager, Facility
+from entities.facility import FacilityManager, Facility
 
 
 @click.group()

@@ -1,6 +1,6 @@
 from uuid import UUID, uuid4
-from identifiable import Identifiable
-from abstract_manager import AbstractManager
+from entities.identifiable import Identifiable
+from entities.abstract_manager import AbstractManager
 
 
 class Facility(Identifiable):

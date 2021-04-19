@@ -1,7 +1,7 @@
-from abstract_manager import AbstractManager
+from entities.abstract_manager import AbstractManager
 from datetime import date as date_type
 from uuid import UUID, uuid4
-from identifiable import Identifiable
+from entities.identifiable import Identifiable
 
 
 class Appointment(Identifiable):

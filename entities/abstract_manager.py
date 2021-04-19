@@ -3,8 +3,7 @@ from pathlib import Path
 from typing import Generic, List, Optional, TypeVar
 import pickle
 from uuid import UUID
-import uuid
-from identifiable import Identifiable
+from entities.identifiable import Identifiable
 
 T = TypeVar("T", bound=Identifiable)
 
