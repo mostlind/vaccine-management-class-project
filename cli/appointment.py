@@ -83,7 +83,7 @@ def lookup(id: str):
     print(
         f"""Found Appointment
 ----------------------------------
-Id: {str(appointment.id)}
+Id: {appointment.id}
 User: {user.name}
 Facility: {facility.name}
 Date: {appointment.date}"""
