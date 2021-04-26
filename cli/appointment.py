@@ -1,3 +1,4 @@
+from entities.facility import FacilityManager
 from click.termui import prompt
 from cli.facility import facility
 from datetime import date, datetime, timedelta
@@ -45,7 +46,7 @@ def schedule():
     appointment_date = date.today() + timedelta(days=3)
 
     appointment = Appointment(
-        facility_id=facility_id, user_id=user.id, date=appointment_date
+        facility_id=uuid.UUID(facility_id), user_id=user.id, date=appointment_date
     )
 
     appointment_manager = ApppointmentManager()
@@ -68,5 +69,27 @@ def list():
         )
 
 
+@click.command()
+@click.option("--id", help="The unique identifier for the facility")
+def lookup(id: str):
+    appointment_manager = ApppointmentManager()
+    facility_manager = FacilityManager()
+    user_manager = UserManager()
+
+    appointment = appointment_manager.find_by_id(uuid.UUID(id))
+    user = user_manager.find_by_id(appointment.user_id)
+    facility = facility_manager.find_by_id(appointment.facility_id)
+
+    print(
+        f"""Found Appointment
+----------------------------------
+Id: {str(appointment.id)}
+User: {user.name}
+Facility: {facility.name}
+Date: {appointment.date}"""
+    )
+
+
 appointment.add_command(list)
 appointment.add_command(schedule)
+appointment.add_command(lookup)

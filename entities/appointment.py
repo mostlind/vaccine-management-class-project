@@ -14,5 +14,5 @@ class Appointment(Identifiable):
 
 class ApppointmentManager(AbstractManager[Appointment]):
     def __init__(self, data_directory="data") -> None:
-        self.filename = "appoinments.pickle"
+        self.filename = "appointments.pickle"
         self.data_directory = data_directory
