@@ -16,7 +16,7 @@ class AbstractManager(Generic[T]):
         """Create new item if it doesn't already exist, update if it does, then save to file"""
 
         # get all items, except the one being updated
-        items = [x for x in self.all() if x.id != new_item.id]
+        items = [x for x in self.all() if x != new_item]
 
         items.append(new_item)
         file_path = path.join(self.data_directory, self.filename)

@@ -1,3 +1,6 @@
+from datetime import date
+from entities.user import User
+from entities.facility import Facility
 from click.testing import CliRunner
 from cli import cli
 import unittest
@@ -66,6 +69,22 @@ class IntegrationTest(unittest.TestCase):
             self.assertTrue(contains(appoinment_output, f"Id: {appointment_id}"))
             self.assertTrue(contains(appoinment_output, f"Facility: {facility_name}"))
             self.assertTrue(contains(appoinment_output, f"User: {user_name}"))
+
+    def test_equality_defined_in_super_class(self):
+        facility_1 = Facility("1", "1", 1)
+        facility_2 = Facility("2", "2", 2)
+
+        self.assertNotEqual(facility_1, facility_2)
+        facility_2.id = facility_1.id
+        self.assertEqual(facility_1, facility_2)
+
+        today = date.today()
+        user_1 = User("1", today, "1", 1)
+        user_2 = User("2", today, "2", 2)
+
+        self.assertNotEqual(user_1, user_2)
+        user_2.id = user_1.id
+        self.assertEqual(user_1, user_2)
 
 
 if __name__ == "__main__":

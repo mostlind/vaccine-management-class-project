@@ -18,9 +18,6 @@ class User(Identifiable):
         self.address = address
         self.number_of_preexisting_conditions = number_of_preexisting_conditions
 
-    def __eq__(self, o: object) -> bool:
-        return self.id == o.id
-
 
 class UserManager(AbstractManager[User]):
     def __init__(self, data_directory="data") -> None:

@@ -15,9 +15,6 @@ class Facility(Identifiable):
         self.address = address
         self.number_of_vaccines = number_of_vaccines
 
-    def __eq__(self, o: object) -> bool:
-        return self.id == o.id
-
 
 class FacilityManager(AbstractManager[Facility]):
     def __init__(self, data_directory="data") -> None:
